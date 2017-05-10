@@ -25,7 +25,7 @@
 
     <div class="container">
       @include('layouts.menu')
-      @yield('body')
+      @yield('content')
       @include('layouts.footer')
 
       
