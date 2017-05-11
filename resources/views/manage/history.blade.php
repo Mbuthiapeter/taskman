@@ -1,27 +1,20 @@
-
-@extends('layouts.master')
-@section('name')
-My Tasks
-@endsection
+@extends('layouts.app')
 @section('content')
 
-    <!-- Bootstrap Boilerplate... -->
-
    <div class="panel-body">
-        <!-- Display Validation Errors -->
         @include('common.errors')        
 
-     <!-- Current Tasks -->
+   
     @if (count($tasks) > 0)
         <div class="panel panel-default">
             <div class="panel-heading">
-                Current Tasks
+                Task History for {{$user->name}}
             </div>
 
             <div class="panel-body">
                 <table class="table table-striped task-table">
 
-                    <!-- Table Headings -->
+                   
                     <thead>
                         <th></th>
                         <th>Task</th>
@@ -32,14 +25,14 @@ My Tasks
                         <th></th>
                     </thead>
 
-                    <!-- Table Body -->
+                   
                     <tbody>
                         @foreach ($tasks as $task)
                             <tr>
-                                <!-- Task Name -->
+                               
                                 <td class="table-text"><div class="checkbox">
                                 <label><input type="checkbox" name="optradio"></label></div></td>
-                                <td class="table-text"><div><a href="viewTask/{{ $task->id }}">{{ $task->name }}</a></div></td>
+                                <td class="table-text"><div><a href="{{ url('viewTask') }}">{{ $task->name }}</a></div></td>
                                 <td class="table-text"><div>{{ $task->category }}</div></td>
                                 <td class="table-text"><div>{{ $task->assigned_to }}</div></td>
                                 <td class="table-text"><div>{{ $task->due_date }}</div></td>
@@ -50,8 +43,7 @@ My Tasks
                                         {{ csrf_field() }}
                                         {{ method_field('DELETE') }}
 
-            <i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i>
-
+            <button>Edit Task</button>
         </form>
                                 </td>
                             </tr>

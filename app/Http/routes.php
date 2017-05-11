@@ -18,7 +18,15 @@ Route::get('/', function(){
 });
 
 Route::get('/tasks', 'TaskController@index');
+Route::get('/allTasks', 'TaskController@all');
+Route::get('/addTasks', 'TaskController@add');
 Route::post('/task', 'TaskController@store');
+Route::get('viewTask/{id}', 'TaskController@view');
+Route::get('/editTask', 'TaskController@edit');
+
+Route::get('/manage', 'UsersController@manage');
+Route::get('userHistory/{id}', 'TaskController@history');
+
 Route::delete('/task/{task}', 'TaskController@destroy');
 Route::auth();
 

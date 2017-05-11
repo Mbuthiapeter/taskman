@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
-use App\user;
+use App\User;
 
 class UsersController extends Controller
 {
@@ -16,6 +16,14 @@ class UsersController extends Controller
 
 	return view('admin.users.index', compact('users'));
    }
+
+   public function manage()
+   {   
+	   $users = User::paginate(5);
+
+	return view('manage.manage', compact('users'));
+   }
+
    public function create(){
 	   return view('admin.users.create');
 	   }

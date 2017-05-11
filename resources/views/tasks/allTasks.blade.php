@@ -1,7 +1,9 @@
 
 @extends('layouts.master')
+
+
 @section('name')
-My Tasks
+All Tasks
 @endsection
 @section('content')
 
@@ -29,7 +31,6 @@ My Tasks
                         <th>Assigned To</th>
                         <th>Due Date</th>
                         <th>Priority</th>
-                        <th></th>
                     </thead>
 
                     <!-- Table Body -->
@@ -45,15 +46,7 @@ My Tasks
                                 <td class="table-text"><div>{{ $task->due_date }}</div></td>
                                 <td class="table-text"><div>{{ $task->priority }}</div></td>
 
-                                <td>
-                                     <form action="/task/{{ $task->id }}" method="POST">
-                                        {{ csrf_field() }}
-                                        {{ method_field('DELETE') }}
-
-            <i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i>
-
-        </form>
-                                </td>
+                                
                             </tr>
                         @endforeach
                     </tbody>
