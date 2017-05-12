@@ -12,6 +12,7 @@ use App\Http\Requests;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Repositories\TaskRepository;
+use Illuminate\Support\Facades\DB;
 
 class TaskController extends Controller
 {
@@ -54,8 +55,9 @@ class TaskController extends Controller
 
     public function history($id)
     {
-         $user = User::find($id);
-        $tasks = Task::all();
+        $tasks = DB::table('tasks')
+                        ->where('user_id', '$id')
+                        ->get();
         return view('manage.history', compact('tasks','user'));
     }
 
@@ -66,11 +68,12 @@ class TaskController extends Controller
         return view('tasks.viewTask', compact('task','users'));
     }
 
-    public function edit(Request $request)
+    public function edit($id)
     {
-         return view('tasks.editTask',[
-            'tasks' => $this->tasks->forUser($request->user()),
-            ]);
+      /* $tasks = DB::table('tasks')
+                        ->where('user_id', '$id')
+                        ->get();*/
+        return view('tasks.editTask', compact('tasks','user'));  
     }
 
 	public function store(Request $request)

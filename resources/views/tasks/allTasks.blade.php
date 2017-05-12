@@ -40,11 +40,12 @@ All Tasks
                                 <!-- Task Name -->
                                 <td class="table-text"><div class="checkbox">
                                 <label><input type="checkbox" name="optradio"></label></div></td>
-                                <td class="table-text"><div><a href="viewTask/{{ $task->id }}">{{ $task->name }}</a></div></td>
+                                <td class="table-text"><div><a href="viewTask/{{ $task->id }}">{{ $task->shortContent }}</a></div></td>
                                 <td class="table-text"><div>{{ $task->category }}</div></td>
                                 <td class="table-text"><div>{{ $task->assigned_to }}</div></td>
                                 <td class="table-text"><div>{{ $task->due_date }}</div></td>
                                 <td class="table-text"><div>{{ $task->priority }}</div></td>
+                                <td class="table-text"><i class="fa fa-eye fa-2x" aria-hidden="true"></i></td>
 
                                 
                             </tr>

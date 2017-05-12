@@ -22,7 +22,7 @@ Route::get('/allTasks', 'TaskController@all');
 Route::get('/addTasks', 'TaskController@add');
 Route::post('/task', 'TaskController@store');
 Route::get('viewTask/{id}', 'TaskController@view');
-Route::get('/editTask', 'TaskController@edit');
+Route::get('editTask/{id}', 'TaskController@edit');
 
 Route::get('/manage', 'UsersController@manage');
 Route::get('userHistory/{id}', 'TaskController@history');

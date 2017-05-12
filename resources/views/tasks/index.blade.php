@@ -30,6 +30,7 @@ My Tasks
                         <th>Due Date</th>
                         <th>Priority</th>
                         <th></th>
+                        <th></th>
                     </thead>
 
                     <!-- Table Body -->
@@ -39,20 +40,17 @@ My Tasks
                                 <!-- Task Name -->
                                 <td class="table-text"><div class="checkbox">
                                 <label><input type="checkbox" name="optradio"></label></div></td>
-                                <td class="table-text"><div><a href="viewTask/{{ $task->id }}">{{ $task->name }}</a></div></td>
+                                <td class="table-text"><div><a href="viewTask/{{ $task->id }}">{{ $task->shortContent }}</a></div></td>
                                 <td class="table-text"><div>{{ $task->category }}</div></td>
                                 <td class="table-text"><div>{{ $task->assigned_to }}</div></td>
                                 <td class="table-text"><div>{{ $task->due_date }}</div></td>
                                 <td class="table-text"><div>{{ $task->priority }}</div></td>
 
                                 <td>
-                                     <form action="/task/{{ $task->id }}" method="POST">
-                                        {{ csrf_field() }}
-                                        {{ method_field('DELETE') }}
-
-            <i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i>
-
-        </form>
+                                 <a href="viewTask/{{ $task->id }}"><i class="fa fa-eye fa-2x" aria-hidden="true"></i></a>
+                                </td>
+                                <td>
+                                <a href="viewTask/{{ $task->id }}"><i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i></a>
                                 </td>
                             </tr>
                         @endforeach

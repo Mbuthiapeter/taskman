@@ -6,10 +6,8 @@
         @include('common.errors')
 
         <!-- New Task Form -->
-        <form action="/task" method="POST" class="form-horizontal">
-            {{ csrf_field() }}
-
-            
+        <form action="/editTask/{{$task->id}}" method="POST" class="form-horizontal">
+            {{ csrf_field() }}          
             
             <div class="form-group">
                 <label for="task-name" class="col-sm-3 control-label">Title<span style="color: red">*</span></label>
