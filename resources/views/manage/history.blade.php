@@ -1,4 +1,7 @@
 @extends('layouts.app')
+@section('name')
+User Task History
+@endsection 
 @section('content')
 
    <div class="panel-body">
@@ -43,7 +46,8 @@
                                         {{ csrf_field() }}
                                         {{ method_field('DELETE') }}
 
-            <button>Edit Task</button>
+            <i class="fa fa-eye fa-2x" aria-hidden="true"></i>
+
         </form>
                                 </td>
                             </tr>
@@ -53,4 +57,5 @@
             </div>
         </div>
     @endif
+    </div>
 @endsection

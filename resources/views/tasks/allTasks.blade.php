@@ -51,6 +51,7 @@ All Tasks
                         @endforeach
                     </tbody>
                 </table>
+                {{$tasks->links()}}
             </div>
         </div>
     @endif

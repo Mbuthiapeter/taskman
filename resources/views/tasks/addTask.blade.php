@@ -35,12 +35,9 @@ Add Tasks
             			<label for="task-name" class=" col-sm-3 control-label ">Category<span style="color: red">*</span></label>
                 <div class="col-sm-6">                
                 <select tabindex="4" id="category" name="category" class="input-sm form-control">
-				<option value="Board operations">Board operations</option>
-				<option value="Strategic planning">Strategic planning</option>
-				<option value="Business planning" selected="selected">Business planning</option>
-				<option value="Management development">Management development </option>
-				<option value="Employee development ">Employee development </option>
-				<option value="Employee development ">Other </option>
+                @foreach($categories as $category)
+                <option value="{{$category->name}}">{{$category->name}}</option>
+                @endforeach				
 				</select>
                 </div>
             </div>
@@ -49,12 +46,9 @@ Add Tasks
 
                 <div class="col-sm-6">
                     <select tabindex="4" id="priority" name="priority" class="input-sm form-control">
-				<option value="none">none</option>
-				<option value="low">low</option>
-				<option value="normal" selected="selected">normal</option>
-				<option value="high">high</option>
-				<option value="urgent">urgent</option>
-				<option value="immediate">immediate</option>
+				@foreach($priorities as $priority)
+                <option value="{{$priority->name}}">{{$priority->name}}</option>
+                @endforeach
 				</select>
                 </div>
             </div>
@@ -64,8 +58,9 @@ Add Tasks
 
                 <div class="col-sm-6">
                     <select tabindex="4" id="scope" name="scope" class="input-sm form-control">
-							<option value="Private">Private</option>
-							<option value="Public">Public</option>
+							@foreach($scopes as $scope)
+                <option value="{{$scope->name}}">{{$scope->name}}</option>
+                @endforeach
 							</select>
                 </div>
             </div>
@@ -87,8 +82,9 @@ Add Tasks
 
                 <div class="col-sm-6">
                      <select tabindex="4" id="group" name="group" class="input-sm form-control">
-							<option value="Managers">Managers</option>
-							<option value="Members">Members</option>
+							@foreach($groups as $group)
+                <option value="{{$group->name}}">{{$group->name}}</option>
+                @endforeach
 							</select>
                 </div>
             </div>

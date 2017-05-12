@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Task;
 use App\User;
+use App\Scope;
+use App\Group;
+use App\Priority;
+use App\Category;
 use App\Http\Requests;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -35,7 +39,11 @@ class TaskController extends Controller
     public function add(Request $request)
     {
         $users = User::all();
-        return view('tasks.addTask', compact('users'));
+        $groups = Group::all();
+        $categories = Category::all();
+        $scopes = Scope::all();
+        $priorities = Priority::all();
+        return view('tasks.addTask', compact('users','groups','categories','scopes','priorities'));
     }
 
     /*public function manage(Request $request)
